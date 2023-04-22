@@ -24,8 +24,8 @@ export class App extends Component {
     } else alert(`${newContact.name} is alredy in contacts`);
   };
 
-  findContact = e => {
-    this.setState({ filter: e.currentTarget.value });
+  findContact = ({ currentTarget: { value } }) => {
+    this.setState({ filter: value });
   };
 
   getVisibleContacts = () => {

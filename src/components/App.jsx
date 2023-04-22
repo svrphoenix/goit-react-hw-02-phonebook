@@ -14,10 +14,10 @@ export class App extends Component {
 
   addContact = newContact => {
     const { contacts } = this.state;
-    const isContact = contacts.find(item =>
-      item.name.includes(newContact.name)
+    const isContactName = contacts.find(item =>
+      item.name.toLowerCase() === (newContact.name.toLowerCase())
     );
-    if (!isContact) {
+    if (!isContactName) {
       this.setState(prevState => ({
         contacts: [...prevState.contacts, newContact],
       }));
@@ -51,7 +51,6 @@ export class App extends Component {
           {' '}
           <FormAddContact
             onSubmit={this.addContact}
-            currentState={this.state}
           />
         </Layout>
         <Layout>

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Title } from 'components/Title/Title';
@@ -14,6 +15,10 @@ const INITIAL_STATE = {
 };
 
 export class FormAddContact extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
     number: '',
